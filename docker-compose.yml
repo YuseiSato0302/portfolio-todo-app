@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=devpassword
+      - POSTGRES_DB=todo_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
