@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "lint": "eslint --ext .ts,.tsx src/",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots"
   },
   "dependencies": {
     "@vercel/postgres": "^0.10.0",
