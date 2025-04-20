@@ -13,5 +13,3 @@ const db = process.env.NODE_ENV === 'development'
   : drizzleProd();
 
 export { db };
-
-
